@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>bitpshr</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="Paul Bouchon is a programmer focused on distributed version control and non-contrived blockchain applications."
+		/>
+		<link rel="icon" type="image/png" href="cdn/icon.png" />
+		<link href="cdn/bitpshr.css" rel="stylesheet" />
+		<style>
+			body {
+				display: flex;
+			}
+
+			sup {
+				font-size: 12px;
+				position: relative;
+				top: -8px;
+				vertical-align: baseline;
+			}
+
+			.intro,
+			.additional {
+				display: flex;
+				flex-direction: column;
+			}
+
+			.intro {
+				flex: 1;
+			}
+
+			.additional {
+				flex: 0;
+			}
+
+			main {
+				flex: 1;
+				max-width: 640px;
+			}
+
+			.footnotes {
+				flex: 0;
+				font-size: 16px;
+				margin: 0;
+				padding-left: 30px;
+			}
+
+			.min {
+				display: none;
+			}
+
+			.contact {
+				float: right;
+			}
+
+			.barrel {
+				border: 0;
+				display: block;
+				height: 250px;
+				left: -8px;
+				margin: 72px 0;
+				position: relative;
+				width: 250px;
+			}
+
+			.clients {
+				text-align: right;
+				white-space: nowrap;
+			}
+
+			.action {
+				flex: 1;
+			}
+
+			.clients {
+				flex: 0;
+			}
+
+			.full {
+				overflow: visible;
+				text-overflow: ellipsis;
+				white-space: nowrap;
+			}
+
+			@media (max-width: 900px) {
+				body {
+					display: block;
+				}
+
+				main,
+				.action {
+					flex: 0;
+				}
+
+				.full {
+					display: none;
+				}
+
+				.min {
+					display: inline-block;
+				}
+
+				.contact {
+					display: inline-block;
+					float: none;
+					margin: 48px 0;
+				}
+
+				.barrel {
+					height: 125px;
+					margin: 36px 0;
+					width: 125px;
+				}
+
+				.clients {
+					text-align: left;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="intro">
+			<main>
+				Paul Bouchon is a computer programmer living in the southeastern United States. Current interests
+				include distributed version control<sup><a href="https://abstract.com" target="_blank">[1]</a></sup> and
+				non-contrived blockchain applications.<sup
+					><a href="https://eips.ethereum.org/EIPS/eip-1102" target="_blank">[2]</a></sup
+				><sup><a href="https://eips.ethereum.org/EIPS/eip-1474" target="_blank">[3]</a></sup>
+				<iframe src="barrel.html#hover" class="barrel"></iframe>
+			</main>
+			<ol class="footnotes">
+				<li>
+					<a href="https://abstract.com" target="_blank">
+						<span class="full"> "Design Version Control." <em>Abstract</em>, 2019, abstract.com. </span>
+						<span class="min">Abstract</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://eips.ethereum.org/EIPS/eip-1102" target="_blank">
+						<span class="full">
+							Bouchon, P. "Opt-in Account Exposure." <em>Ethereum</em>, 2018, eips.ethereum.org.
+						</span>
+						<span class="min">EIP-1102</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://eips.ethereum.org/EIPS/eip-1474" target="_blank">
+						<span class="full">
+							Bouchon, P. "RPC Specification." <em>Ethereum</em>, 2018, eips.ethereum.org.
+						</span>
+						<span class="min">EIP-1474</span>
+					</a>
+				</li>
+			</ol>
+		</div>
+		<div class="additional">
+			<div class="action">
+				<a href="mailto:mail@bitpshr.net" class="button contact">Contact</a>
+			</div>
+			<div class="clients">
+				Past work:<br />
+				<br />
+				abstract<br />
+				donda<br />
+				ethereum<br />
+				gucci<br />
+				ibm<br />
+				nasa<br />
+				nike<br />
+				paypal<br />
+				redbull<br />
+				soylent<br />
+				webpack
+			</div>
+		</div>
+	</body>
+</html>

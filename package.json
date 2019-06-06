@@ -1,0 +1,16 @@
+{
+  "name": "bitpshr.net",
+  "description": "Bitpshr.net is a minimal portfolio website.",
+  "version": "1.0.0",
+  "private": true,
+  "license": "WTFPL",
+  "scripts": {
+    "build": "echo 🚀",
+    "format": "npx prettier '**/!(package.json|!(*.{html,css,js,jsx,json}))' --write"
+  },
+  "prettier": {
+    "printWidth": 120,
+    "singleQuote": true,
+    "useTabs": true
+  }
+}

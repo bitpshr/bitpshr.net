@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>barrel</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/png" href="cdn/icon.png" />
+		<link href="cdn/bitpshr.css" rel="stylesheet" />
+		<style>
+			.threedee {
+				left: 50%;
+				position: absolute;
+				top: 50%;
+				transform-origin: center;
+				transform-style: preserve-3d;
+			}
+
+			.assembly {
+				animation: spin 4s linear infinite;
+			}
+
+			.threedee:hover .scaffold {
+				backface-visibility: visible;
+				box-shadow: inset 0 0 0 1px #cccccc;
+				mask-image: none;
+			}
+
+			@media (max-width: 249px) {
+				body {
+					transform: scale(0.5);
+				}
+			}
+
+			@media (prefers-color-scheme: light) {
+				.threedee:hover .scaffold {
+					box-shadow: inset 0 0 0 1px #222222;
+				}
+			}
+
+			@keyframes spin {
+				to {
+					transform: rotateY(360deg) rotateZ(360deg) rotateX(720deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+		<script type="text/babel">
+			(function() {
+				class Barrel {
+					texture = '/assets/barrel.png';
+					hover = window.location.hash === '#hover';
+
+					constructor() {
+						const barrel = this.addTube(102, 196, 32, this.texture);
+						barrel.appendChild(this.addFace(102, 102, 0, -98, 0, Math.PI / 2, 0, 0, this.texture, 0, 102));
+						barrel.appendChild(this.addFace(102, 102, 0, 98, 0, -Math.PI / 2, 0, 0, this.texture, 0, 102));
+						return barrel;
+					}
+
+					addTube(dia, height, sides, texture) {
+						const tube = this.addAssembly();
+						const sideAngle = (Math.PI / sides) * 2;
+						const sideLen = dia * Math.tan(Math.PI / sides);
+						for (let c = 0; c < sides; c++) {
+							const x = (Math.sin(sideAngle * c) * dia) / 2;
+							const z = (Math.cos(sideAngle * c) * dia) / 2;
+							const ry = Math.atan2(x, z);
+							tube.appendChild(
+								this.addFace(sideLen + 1, height, x, 0, z, 0, ry, 0, texture, sideLen * c, 0)
+							);
+						}
+						return tube;
+					}
+
+					addAssembly() {
+						const assembly = document.createElement('div');
+						assembly.classList.add('threedee', 'assembly');
+						return assembly;
+					}
+
+					addFace(w, h, x, y, z, rx, ry, rz, tsrc, tx, ty) {
+						const face = document.createElement('div');
+						face.classList.add('threedee', 'face');
+						face.classList.toggle('scaffold', this.hover);
+						face.style.cssText = `
+							background: url(${tsrc}) -${tx.toFixed(2)}px ${ty.toFixed(2)}px;
+							height: ${h.toFixed(2)}px;
+							margin-left: -${(w / 2).toFixed(2)}px;
+							margin-top: -${(h / 2).toFixed(2)}px;
+							transform: translate3d(${x.toFixed(2)}px, ${y.toFixed(2)}px, ${z.toFixed(2)}px)
+							rotateX(${rx.toFixed(2)}rad) rotateY(${ry.toFixed(2)}rad) rotateY(${rz.toFixed(2)}rad);
+							width: ${w.toFixed(2)}px;
+						`;
+						return face;
+					}
+				}
+
+				document.body.appendChild(new Barrel());
+			})();
+		</script>
+	</body>
+</html>
