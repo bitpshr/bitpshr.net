@@ -5,175 +5,211 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta
 			name="description"
-			content="Paul Bouchon is a programmer focused on distributed version control and non-contrived blockchain applications."
+			content="Paul Bouchon is a programmer focused on edge computing and cryptocurrency usability."
 		/>
 		<link rel="icon" type="image/png" href="cdn/icon.png" />
-		<link href="cdn/bitpshr.css" rel="stylesheet" />
 		<style>
 			body {
-				display: flex;
-			}
-
-			sup {
-				font-size: 12px;
-				position: relative;
-				top: -8px;
-				vertical-align: baseline;
-			}
-
-			.intro,
-			.additional {
-				display: flex;
-				flex-direction: column;
-			}
-
-			.intro {
-				flex: 1;
-			}
-
-			.additional {
-				flex: 0;
+				background: #000000;
+				color: #dddddd;
+				font-family: "Source Code Pro", monospace;
+				font-size: 16px;
+				line-height: 28px;
+				margin: 0;
+				padding: 0 24px 24px 24px;
 			}
 
 			main {
+				margin: 160px auto;
+				max-width: 570px;
+				text-align: justify;
+			}
+
+			.work {
+				display: flex;
+				margin-top: 20px;
+			}
+
+			.clients {
 				flex: 1;
-				max-width: 640px;
+				text-align: right;
 			}
 
-			.footnotes {
-				flex: 0;
-				font-size: 16px;
-				margin: 0;
-				padding-left: 30px;
-			}
-
-			.min {
-				display: none;
-			}
-
-			.contact {
-				float: right;
+			.clients > span:not(:last-child):after {
+				content: ", ";
 			}
 
 			.barrel {
 				border: 0;
 				display: block;
-				height: 250px;
-				left: -8px;
-				margin: 72px 0;
+				height: 200px;
+				margin: 0 auto;
+				width: 200px;
 				position: relative;
-				width: 250px;
 			}
 
-			.clients {
-				text-align: right;
-				white-space: nowrap;
+			.copy {
+				margin-top: 80px;
 			}
 
-			.action {
-				flex: 1;
+			.stage {
+				height: 100%;
+				width: 100%;
+				transform: scale(0.8);
 			}
 
-			.clients {
-				flex: 0;
+			.threedee {
+				left: 50%;
+				position: absolute;
+				top: 50%;
+				transform-origin: center;
+				transform-style: preserve-3d;
 			}
 
-			.full {
-				overflow: visible;
-				text-overflow: ellipsis;
-				white-space: nowrap;
+			.assembly {
+				animation: spin 4s linear infinite;
 			}
 
-			@media (max-width: 900px) {
-				body {
+			.threedee:hover .scaffold {
+				backface-visibility: visible;
+				box-shadow: inset 0 0 0 1px #eeeeee;
+				mask-image: none;
+			}
+
+			#start:not(#start:target) .copy {
+				display: block !important;
+			}
+
+			#start:target main {
+				left: 50%;
+				margin: -120px 0 0 0;
+				position: absolute;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			@keyframes spin {
+				to {
+					transform: rotateY(360deg) rotateZ(360deg) rotateX(720deg);
+				}
+			}
+
+			@media (max-width: 724px) {
+				main {
+					margin: 56px 0;
+					max-width: 100%;
+					text-align: left;
+				}
+
+				.copy {
+					margin-top: 56px;
+				}
+
+				.work {
+					display: block;
+					margin-top: 40px;
+				}
+
+				.clients {
+					display: block;
+					margin-top: 16px;
+				}
+
+				.clients > span {
 					display: block;
 				}
 
-				main,
-				.action {
-					flex: 0;
-				}
-
-				.full {
+				.clients > span:after {
 					display: none;
-				}
-
-				.min {
-					display: inline-block;
-				}
-
-				.contact {
-					display: inline-block;
-					float: none;
-					margin: 48px 0;
-				}
-
-				.barrel {
-					height: 125px;
-					margin: 36px 0;
-					width: 125px;
 				}
 
 				.clients {
 					text-align: left;
 				}
+
+				.barrel {
+					height: 125px;
+					margin: 0;
+					width: 125px;
+				}
+
+				.stage {
+					transform: scale(0.5);
+				}
+			}
+
+			@media (prefers-color-scheme: light) {
+				body {
+					background: #efe7d2;
+					color: #333333;
+				}
 			}
 		</style>
 	</head>
-	<body>
-		<div class="intro">
-			<main>
-				Paul Bouchon is a computer programmer living in the southeastern United States. Current interests
-				include distributed version control<sup><a href="https://abstract.com" target="_blank">[1]</a></sup> and
-				non-contrived blockchain applications.<sup
-					><a href="https://eips.ethereum.org/EIPS/eip-1102" target="_blank">[2]</a></sup
-				><sup><a href="https://eips.ethereum.org/EIPS/eip-1474" target="_blank">[3]</a></sup>
-				<iframe src="barrel.html#hover" class="barrel"></iframe>
-			</main>
-			<ol class="footnotes">
-				<li>
-					<a href="https://abstract.com" target="_blank">
-						<span class="full"> "Design Version Control." <em>Abstract</em>, 2019, abstract.com. </span>
-						<span class="min">Abstract</span>
-					</a>
-				</li>
-				<li>
-					<a href="https://eips.ethereum.org/EIPS/eip-1102" target="_blank">
-						<span class="full">
-							Bouchon, P. "Opt-in Account Exposure." <em>Ethereum</em>, 2018, eips.ethereum.org.
-						</span>
-						<span class="min">EIP-1102</span>
-					</a>
-				</li>
-				<li>
-					<a href="https://eips.ethereum.org/EIPS/eip-1474" target="_blank">
-						<span class="full">
-							Bouchon, P. "RPC Specification." <em>Ethereum</em>, 2018, eips.ethereum.org.
-						</span>
-						<span class="min">EIP-1474</span>
-					</a>
-				</li>
-			</ol>
-		</div>
-		<div class="additional">
-			<div class="action">
-				<a href="mailto:mail@bitpshr.net" class="button contact">Contact</a>
+	<body id="start">
+		<main>
+			<div class="barrel">
+				<div class="stage"></div>
 			</div>
-			<div class="clients">
-				Past work:<br />
-				<br />
-				abstract<br />
-				donda<br />
-				ethereum<br />
-				gucci<br />
-				ibm<br />
-				nasa<br />
-				nike<br />
-				paypal<br />
-				redbull<br />
-				soylent<br />
-				webpack
+			<div class="copy" style="display: none">
+				<strong>Paul Bouchon</strong> is a programmer living in the
+				southeastern United States. Current interests include edge
+				computing and cryptocurrency usability.
+				<div class="work">
+					Selected clients:
+					<div class="clients">
+						<span>ethereum</span>
+						<span>ibm</span>
+						<span>instagram</span>
+						<span>paypal</span>
+						<span>spacex</span>
+					</div>
+				</div>
 			</div>
-		</div>
+		</main>
+		<script>
+			(function () {
+				const start = window.location.hash.substring(1) === "start";
+				const skin = "/assets/barrel.png";
+
+				function addTube(diameter, height, sides) {
+					const tube = document.createElement("div");
+					tube.classList.add("threedee", "assembly");
+					const sideAngle = (Math.PI / sides) * 2;
+					const sideLen = diameter * Math.tan(Math.PI / sides);
+					for (let c = 0; c < sides; c++) {
+						const x = (Math.sin(sideAngle * c) * diameter) / 2;
+						const z = (Math.cos(sideAngle * c) * diameter) / 2;
+						const ry = Math.atan2(x, z);
+						// prettier-ignore
+						tube.appendChild(addFace(sideLen + 1, height, x, 0, z, 0, ry, 0, sideLen * c, 0));
+					}
+					return tube;
+				}
+
+				function addFace(w, h, x, y, z, rx, ry, rz, tx, ty) {
+					const face = document.createElement("div");
+					face.classList.add("threedee", "face", "scaffold");
+					face.style.cssText = `
+						background: url(${skin}) -${tx}px ${ty}px;
+						height: ${h}px;
+						margin-left: -${w / 2}px;
+						margin-top: -${h / 2}px;
+						transform: translate3d(${x}px, ${y}px, ${z}px)
+						rotateX(${rx}rad) rotateY(${ry}rad) rotateY(${rz}rad);
+						width: ${w}px;
+					`;
+					return face;
+				}
+
+				const barrel = addTube(102, 196, 32);
+				// prettier-ignore
+				barrel.appendChild(addFace(102, 102, 0, -98, 0, Math.PI / 2, 0, 0, 0, 102));
+				// prettier-ignore
+				barrel.appendChild(addFace(102, 102, 0, 98, 0, -Math.PI / 2, 0, 0, 0, 102));
+
+				document.body.querySelector(".stage").appendChild(barrel);
+			})();
+		</script>
 	</body>
 </html>
